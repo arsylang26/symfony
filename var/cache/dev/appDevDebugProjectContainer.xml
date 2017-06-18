@@ -17,10 +17,13 @@
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="OCPlatformBundle">OC\PlatformBundle\OCPlatformBundle</parameter>
+      <parameter key="StofDoctrineExtensionsBundle">Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
+      <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
+      <parameter key="CoreSphereConsoleBundle">CoreSphere\ConsoleBundle\CoreSphereConsoleBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -68,6 +71,11 @@
         <parameter key="path">D:\wamp64\www\symfony\src\OC\PlatformBundle</parameter>
         <parameter key="namespace">OC\PlatformBundle</parameter>
       </parameter>
+      <parameter key="StofDoctrineExtensionsBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">D:\wamp64\www\symfony\vendor\stof\doctrine-extensions-bundle</parameter>
+        <parameter key="namespace">Stof\DoctrineExtensionsBundle</parameter>
+      </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
         <parameter key="path">D:\wamp64\www\symfony\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle</parameter>
@@ -88,6 +96,16 @@
         <parameter key="path">D:\wamp64\www\symfony\vendor\sensio\generator-bundle</parameter>
         <parameter key="namespace">Sensio\Bundle\GeneratorBundle</parameter>
       </parameter>
+      <parameter key="DoctrineFixturesBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">D:\wamp64\www\symfony\vendor\doctrine\doctrine-fixtures-bundle</parameter>
+        <parameter key="namespace">Doctrine\Bundle\FixturesBundle</parameter>
+      </parameter>
+      <parameter key="CoreSphereConsoleBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">D:\wamp64\www\symfony\vendor\coresphere\console-bundle</parameter>
+        <parameter key="namespace">CoreSphere\ConsoleBundle</parameter>
+      </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
@@ -100,11 +118,11 @@
     <parameter key="mailer_host">127.0.0.1</parameter>
     <parameter key="mailer_user">null</parameter>
     <parameter key="mailer_password">null</parameter>
-    <parameter key="secret">c249c227a259f768231af91ed568a16f85663d0d</parameter>
+    <parameter key="secret">3f27e98904eaa5df448b8661407b2bdcb5f97c76</parameter>
     <parameter key="locale">en</parameter>
     <parameter key="fragment.renderer.hinclude.global_template">null</parameter>
     <parameter key="fragment.path">/_fragment</parameter>
-    <parameter key="kernel.secret">c249c227a259f768231af91ed568a16f85663d0d</parameter>
+    <parameter key="kernel.secret">3f27e98904eaa5df448b8661407b2bdcb5f97c76</parameter>
     <parameter key="kernel.http_method_override">true</parameter>
     <parameter key="kernel.trusted_hosts" type="collection"/>
     <parameter key="kernel.trusted_proxies" type="collection"/>
@@ -158,23 +176,24 @@
     <parameter key="twig.exception_listener.controller">twig.controller.exception:showAction</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
+      <parameter>bootstrap_3_layout.html.twig</parameter>
     </parameter>
     <parameter key="monolog.use_microseconds">true</parameter>
     <parameter key="monolog.swift_mailer.handlers" type="collection"/>
     <parameter key="monolog.handlers_to_channels" type="collection">
-      <parameter key="monolog.handler.console" type="collection">
-        <parameter key="type">exclusive</parameter>
+      <parameter key="monolog.handler.console_very_verbose" type="collection">
+        <parameter key="type">inclusive</parameter>
         <parameter key="elements" type="collection">
-          <parameter>event</parameter>
           <parameter>doctrine</parameter>
         </parameter>
       </parameter>
-      <parameter key="monolog.handler.main" type="collection">
+      <parameter key="monolog.handler.console" type="collection">
         <parameter key="type">exclusive</parameter>
         <parameter key="elements" type="collection">
-          <parameter>event</parameter>
+          <parameter>doctrine</parameter>
         </parameter>
       </parameter>
+      <parameter key="monolog.handler.main">null</parameter>
     </parameter>
     <parameter key="swiftmailer.class">Swift_Mailer</parameter>
     <parameter key="swiftmailer.transport.sendmail.class">Swift_Transport_SendmailTransport</parameter>
@@ -331,8 +350,30 @@
     <parameter key="sensio_framework_extra.converter.doctrine.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter</parameter>
     <parameter key="sensio_framework_extra.converter.datetime.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter</parameter>
     <parameter key="sensio_framework_extra.view.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener</parameter>
+    <parameter key="stof_doctrine_extensions.event_listener.locale.class">Stof\DoctrineExtensionsBundle\EventListener\LocaleListener</parameter>
+    <parameter key="stof_doctrine_extensions.event_listener.logger.class">Stof\DoctrineExtensionsBundle\EventListener\LoggerListener</parameter>
+    <parameter key="stof_doctrine_extensions.event_listener.blame.class">Stof\DoctrineExtensionsBundle\EventListener\BlameListener</parameter>
+    <parameter key="stof_doctrine_extensions.uploadable.manager.class">Stof\DoctrineExtensionsBundle\Uploadable\UploadableManager</parameter>
+    <parameter key="stof_doctrine_extensions.uploadable.mime_type_guesser.class">Stof\DoctrineExtensionsBundle\Uploadable\MimeTypeGuesserAdapter</parameter>
+    <parameter key="stof_doctrine_extensions.uploadable.default_file_info.class">Stof\DoctrineExtensionsBundle\Uploadable\UploadedFileInfo</parameter>
+    <parameter key="stof_doctrine_extensions.default_locale">en</parameter>
+    <parameter key="stof_doctrine_extensions.default_file_path">null</parameter>
+    <parameter key="stof_doctrine_extensions.translation_fallback">false</parameter>
+    <parameter key="stof_doctrine_extensions.persist_default_translation">false</parameter>
+    <parameter key="stof_doctrine_extensions.skip_translation_on_load">false</parameter>
+    <parameter key="stof_doctrine_extensions.uploadable.validate_writable_directory">true</parameter>
+    <parameter key="stof_doctrine_extensions.listener.translatable.class">Gedmo\Translatable\TranslatableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.timestampable.class">Gedmo\Timestampable\TimestampableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.blameable.class">Gedmo\Blameable\BlameableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.sluggable.class">Gedmo\Sluggable\SluggableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.tree.class">Gedmo\Tree\TreeListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.loggable.class">Gedmo\Loggable\LoggableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.sortable.class">Gedmo\Sortable\SortableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.softdeleteable.class">Gedmo\SoftDeleteable\SoftDeleteableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.uploadable.class">Gedmo\Uploadable\UploadableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.reference_integrity.class">Gedmo\ReferenceIntegrity\ReferenceIntegrityListener</parameter>
     <parameter key="web_profiler.debug_toolbar.position">bottom</parameter>
-    <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
+    <parameter key="web_profiler.debug_toolbar.intercept_redirects">true</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
@@ -390,6 +431,10 @@
       <parameter key="data_collector.dump" type="collection">
         <parameter>dump</parameter>
         <parameter>@Debug/Profiler/dump.html.twig</parameter>
+      </parameter>
+      <parameter key="coresphere_console.toolbar" type="collection">
+        <parameter>coresphere_console</parameter>
+        <parameter>CoreSphereConsoleBundle:Toolbar:toolbar</parameter>
       </parameter>
       <parameter key="data_collector.config" type="collection">
         <parameter>config</parameter>
@@ -461,7 +506,7 @@
                 <tag name="cache.pool" clearer="cache.default_clearer"/>
                 <argument>LC6Q5Ghso5</argument>
                 <argument>0</argument>
-                <argument>kDTSW-9Kqd0SZ5e7NELapH</argument>
+                <argument>r9txL1qjGedqsa8ykWm8jJ</argument>
                 <argument>D:\wamp64\www\symfony\var\cache\dev/pools</argument>
                 <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                 <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -547,7 +592,7 @@
       <argument>D:\wamp64\www\symfony\app/Resources</argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner">
-      <argument>c249c227a259f768231af91ed568a16f85663d0d</argument>
+      <argument>3f27e98904eaa5df448b8661407b2bdcb5f97c76</argument>
     </service>
     <service id="config_cache_factory" class="Symfony\Component\Config\ResourceCheckerConfigCacheFactory">
       <argument type="collection">
@@ -644,7 +689,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>E+ELzPShnR</argument>
       <argument>0</argument>
-      <argument>kDTSW-9Kqd0SZ5e7NELapH</argument>
+      <argument>r9txL1qjGedqsa8ykWm8jJ</argument>
       <argument>D:\wamp64\www\symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -654,7 +699,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>f8uZ60yjqW</argument>
       <argument>0</argument>
-      <argument>kDTSW-9Kqd0SZ5e7NELapH</argument>
+      <argument>r9txL1qjGedqsa8ykWm8jJ</argument>
       <argument>D:\wamp64\www\symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -915,11 +960,11 @@
         <argument key="cookie_httponly">true</argument>
         <argument key="gc_probability">1</argument>
       </argument>
-      <argument type="service" id="session.handler"/>
+      <argument>null</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
     <service id="session.storage.php_bridge" class="Symfony\Component\HttpFoundation\Session\Storage\PhpBridgeSessionStorage">
-      <argument type="service" id="session.handler"/>
+      <argument>null</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
     <service id="session_listener" class="Symfony\Bundle\FrameworkBundle\EventListener\SessionListener">
@@ -1315,6 +1360,9 @@
         <argument type="service" id="data_collector.dump"/>
       </call>
       <call method="add">
+        <argument type="service" id="coresphere_console.toolbar"/>
+      </call>
+      <call method="add">
         <argument type="service">
           <service class="Symfony\Component\HttpKernel\DataCollector\ConfigDataCollector" public="false">
             <tag name="data_collector" template="@WebProfiler/Collector/config.html.twig" id="config" priority="-255"/>
@@ -1451,6 +1499,10 @@
         <argument>Symfony\Bridge\Monolog\Handler\ConsoleHandler</argument>
       </call>
       <call method="addSubscriberService">
+        <argument>monolog.handler.console_very_verbose</argument>
+        <argument>Symfony\Bridge\Monolog\Handler\ConsoleHandler</argument>
+      </call>
+      <call method="addSubscriberService">
         <argument>swiftmailer.email_sender.listener</argument>
         <argument>Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener</argument>
       </call>
@@ -1534,6 +1586,10 @@
       <argument type="service" id="debug.stopwatch"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor" public="false"/>
+    <service id="routing.loader.yml" class="Symfony\Component\Routing\Loader\YamlFileLoader" public="false">
+      <tag name="routing.loader"/>
+      <argument type="service" id="file_locator"/>
+    </service>
     <service id="routing.loader" class="Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader">
       <argument type="service" id="controller_name_converter"/>
       <argument type="service">
@@ -1547,12 +1603,7 @@
             </argument>
           </call>
           <call method="addLoader">
-            <argument type="service">
-              <service class="Symfony\Component\Routing\Loader\YamlFileLoader" public="false">
-                <tag name="routing.loader"/>
-                <argument type="service" id="file_locator"/>
-              </service>
-            </argument>
+            <argument type="service" id="routing.loader.yml"/>
           </call>
           <call method="addLoader">
             <argument type="service">
@@ -1614,6 +1665,9 @@
               </service>
             </argument>
           </call>
+          <call method="addLoader">
+            <argument type="service" id="coresphere_console.routing"/>
+          </call>
         </service>
       </argument>
     </service>
@@ -1647,7 +1701,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>593868b8a327e4.85476456</argument>
+            <argument>59465b2082a1c8.82720972</argument>
           </service>
         </argument>
       </argument>
@@ -1795,7 +1849,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>593868b8a327e4.85476456</argument>
+            <argument>59465b2082a1c8.82720972</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -1853,10 +1907,11 @@
       <argument type="collection">
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
-        <argument key="exception_controller">twig.controller.exception:showAction</argument>
         <argument key="form_themes" type="collection">
           <argument>form_div_layout.html.twig</argument>
+          <argument>bootstrap_3_layout.html.twig</argument>
         </argument>
+        <argument key="exception_controller">twig.controller.exception:showAction</argument>
         <argument key="autoescape">name</argument>
         <argument key="cache">D:\wamp64\www\symfony\var\cache\dev/twig</argument>
         <argument key="charset">UTF-8</argument>
@@ -2106,6 +2161,7 @@
         <service class="Symfony\Bridge\Twig\Form\TwigRendererEngine" public="false">
           <argument type="collection">
             <argument>form_div_layout.html.twig</argument>
+            <argument>bootstrap_3_layout.html.twig</argument>
           </argument>
           <argument type="service" id="twig"/>
         </service>
@@ -2127,8 +2183,29 @@
     <service id="monolog.handler.console" class="Symfony\Bridge\Monolog\Handler\ConsoleHandler">
       <tag name="kernel.event_subscriber"/>
       <argument>null</argument>
-      <argument>true</argument>
-      <argument type="collection"/>
+      <argument>false</argument>
+      <argument type="collection">
+        <argument key="64">200</argument>
+        <argument key="128">100</argument>
+        <argument key="16">400</argument>
+        <argument key="32">300</argument>
+        <argument key="256">100</argument>
+      </argument>
+      <call method="pushProcessor">
+        <argument type="service" id="monolog.processor.psr_log_message"/>
+      </call>
+    </service>
+    <service id="monolog.handler.console_very_verbose" class="Symfony\Bridge\Monolog\Handler\ConsoleHandler">
+      <tag name="kernel.event_subscriber"/>
+      <argument>null</argument>
+      <argument>false</argument>
+      <argument type="collection">
+        <argument key="64">250</argument>
+        <argument key="128">250</argument>
+        <argument key="256">100</argument>
+        <argument key="16">400</argument>
+        <argument key="32">300</argument>
+      </argument>
       <call method="pushProcessor">
         <argument type="service" id="monolog.processor.psr_log_message"/>
       </call>
@@ -2197,6 +2274,16 @@
       <argument type="service">
         <service class="Symfony\Bridge\Doctrine\ContainerAwareEventManager" public="false">
           <argument type="service" id="service_container"/>
+          <call method="addEventSubscriber">
+            <argument type="service">
+              <service class="Gedmo\Sluggable\SluggableListener" public="false">
+                <tag name="doctrine.event_subscriber" connection="default"/>
+                <call method="setAnnotationReader">
+                  <argument type="service" id="annotation_reader"/>
+                </call>
+              </service>
+            </argument>
+          </call>
           <call method="addEventListener">
             <argument type="collection">
               <argument>loadClassMetadata</argument>
@@ -2254,7 +2341,9 @@
       <argument type="service">
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
-            <argument type="collection"/>
+            <argument type="collection">
+              <argument key="OCPlatformBundle">OC\PlatformBundle\Entity</argument>
+            </argument>
           </call>
           <call method="setMetadataCacheImpl">
             <argument type="service" id="doctrine_cache.providers.doctrine.orm.default_metadata_cache"/>
@@ -2267,7 +2356,19 @@
           </call>
           <call method="setMetadataDriverImpl">
             <argument type="service">
-              <service class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false"/>
+              <service class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>D:\wamp64\www\symfony\src\OC\PlatformBundle\Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>OC\PlatformBundle\Entity</argument>
+                </call>
+              </service>
             </argument>
           </call>
           <call method="setProxyDir">
@@ -2361,6 +2462,27 @@
       <argument type="service" id="security.token_storage" on-invalid="null"/>
       <argument type="service" id="security.authorization_checker" on-invalid="null"/>
     </service>
+    <service id="oc_platform.antispam" class="OC\PlatformBundle\Antispam\OCAntispam">
+      <argument type="service" id="swiftmailer.mailer.default"/>
+      <argument>en</argument>
+      <argument>50</argument>
+    </service>
+    <service id="stof_doctrine_extensions.uploadable.manager" class="Stof\DoctrineExtensionsBundle\Uploadable\UploadableManager">
+      <argument type="service">
+        <service class="Gedmo\Uploadable\UploadableListener" public="false">
+          <argument type="service">
+            <service class="Stof\DoctrineExtensionsBundle\Uploadable\MimeTypeGuesserAdapter" public="false"/>
+          </argument>
+          <call method="setAnnotationReader">
+            <argument type="service" id="annotation_reader"/>
+          </call>
+          <call method="setDefaultFileInfoClass">
+            <argument>Stof\DoctrineExtensionsBundle\Uploadable\UploadedFileInfo</argument>
+          </call>
+        </service>
+      </argument>
+      <argument>Stof\DoctrineExtensionsBundle\Uploadable\UploadedFileInfo</argument>
+    </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig" priority="240"/>
       <argument type="service" id="debug.stopwatch" on-invalid="ignore"/>
@@ -2448,6 +2570,10 @@
           <argument>dump</argument>
           <argument>@Debug/Profiler/dump.html.twig</argument>
         </argument>
+        <argument key="coresphere_console.toolbar" type="collection">
+          <argument>coresphere_console</argument>
+          <argument>CoreSphereConsoleBundle:Toolbar:toolbar</argument>
+        </argument>
         <argument key="data_collector.config" type="collection">
           <argument>config</argument>
           <argument>@WebProfiler/Collector/config.html.twig</argument>
@@ -2475,7 +2601,7 @@
     <service id="web_profiler.debug_toolbar" class="Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener">
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="twig"/>
-      <argument>false</argument>
+      <argument>true</argument>
       <argument>2</argument>
       <argument>bottom</argument>
       <argument type="service" id="router" on-invalid="ignore"/>
@@ -2486,6 +2612,27 @@
     <service id="sensio_distribution.security_checker.command" class="SensioLabs\Security\Command\SecurityCheckerCommand">
       <tag name="console.command"/>
       <argument type="service" id="sensio_distribution.security_checker"/>
+    </service>
+    <service id="coresphere_console.controller" class="CoreSphere\ConsoleBundle\Controller\ConsoleController">
+      <argument type="service" id="templating"/>
+      <argument type="service" id="coresphere_console.executer"/>
+      <argument type="service" id="coresphere_console.application"/>
+      <argument>dev</argument>
+    </service>
+    <service id="coresphere_console.executer" class="CoreSphere\ConsoleBundle\Executer\CommandExecuter">
+      <argument type="service" id="kernel"/>
+    </service>
+    <service id="coresphere_console.routing" class="CoreSphere\ConsoleBundle\Routing\Loader">
+      <tag name="routing.loader"/>
+      <argument type="service" id="routing.loader.yml"/>
+    </service>
+    <service id="coresphere_console.toolbar" class="CoreSphere\ConsoleBundle\DataCollector\DataCollector">
+      <tag name="data_collector" template="CoreSphereConsoleBundle:Toolbar:toolbar" id="coresphere_console"/>
+    </service>
+    <service id="coresphere_console.application.factory" class="CoreSphere\ConsoleBundle\Console\ApplicationFactory"/>
+    <service id="coresphere_console.application" class="Symfony\Bundle\FrameworkBundle\Console\Application">
+      <argument type="service" id="kernel"/>
+      <factory service="coresphere_console.application.factory" method="create"/>
     </service>
     <service id="monolog.logger.request" class="Symfony\Bridge\Monolog\Logger">
       <argument>request</argument>
@@ -2565,7 +2712,10 @@
         <argument type="service" id="debug.log_processor"/>
       </call>
       <call method="pushHandler">
-        <argument type="service" id="monolog.handler.null_internal"/>
+        <argument type="service" id="monolog.handler.console"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.main"/>
       </call>
     </service>
     <service id="monolog.logger.router" class="Symfony\Bridge\Monolog\Logger">
@@ -2598,6 +2748,9 @@
         <argument type="service" id="debug.log_processor"/>
       </call>
       <call method="pushHandler">
+        <argument type="service" id="monolog.handler.console_very_verbose"/>
+      </call>
+      <call method="pushHandler">
         <argument type="service" id="monolog.handler.main"/>
       </call>
     </service>
@@ -2606,9 +2759,6 @@
       <argument>D:\wamp64\www\symfony\var\cache\dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
-    </service>
-    <service id="session.handler" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler">
-      <argument>D:\wamp64\www\symfony\app/../var/sessions/dev</argument>
     </service>
     <service id="templating.loader" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\FilesystemLoader">
       <argument type="service" id="templating.locator"/>
@@ -2783,6 +2933,10 @@
       <call method="addPath">
         <argument>D:\wamp64\www\symfony\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>
         <argument>WebProfiler</argument>
+      </call>
+      <call method="addPath">
+        <argument>D:\wamp64\www\symfony\vendor\coresphere\console-bundle/Resources/views</argument>
+        <argument>CoreSphereConsole</argument>
       </call>
       <call method="addPath">
         <argument>D:\wamp64\www\symfony\app/Resources/views</argument>

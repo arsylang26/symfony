@@ -9,4 +9,4 @@ parameters:
     mailer_host: 127.0.0.1
     mailer_user: null
     mailer_password: null
-    secret: c249c227a259f768231af91ed568a16f85663d0d
+    secret: 3f27e98904eaa5df448b8661407b2bdcb5f97c76
